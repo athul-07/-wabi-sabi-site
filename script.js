@@ -8,22 +8,25 @@
 
   // The intro waits just long enough to be seen, with a firm limit for slow images.
   const preloader = $('#preloader');
+  document.body.classList.add('intro-loading');
   let introFinished = false;
   const introStarted = performance.now();
   const finishIntro = () => {
     if (introFinished) return;
     introFinished = true;
+    document.body.classList.remove('intro-loading');
+    $('.preloader-skip').disabled = true;
     preloader.classList.add('is-complete');
     preloader.setAttribute('aria-hidden', 'true');
     setTimeout(() => { preloader.hidden = true; }, reducedMotion ? 0 : 700);
   };
   const scheduleIntroFinish = () => {
-    const remaining = reducedMotion ? 0 : Math.max(0, 1100 - (performance.now() - introStarted));
+    const remaining = reducedMotion ? 0 : Math.max(0, 2400 - (performance.now() - introStarted));
     setTimeout(finishIntro, remaining);
   };
   if (document.readyState === 'complete') scheduleIntroFinish();
   else window.addEventListener('load', scheduleIntroFinish, { once: true });
-  setTimeout(finishIntro, reducedMotion ? 0 : 2400);
+  setTimeout(finishIntro, reducedMotion ? 0 : 3500);
   $('.preloader-skip').addEventListener('click', finishIntro);
 
   const header = $('#site-header');

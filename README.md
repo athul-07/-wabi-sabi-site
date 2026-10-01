@@ -10,6 +10,7 @@ Open `index.html` directly, or run `node serve.cjs` and visit http://localhost:4
 
 - Burgundy and champagne visual direction with image-led storytelling
 - Short, skippable preloader with a reduced-motion alternative
+- Supplied signature logo fitted to smooth SVG curves, with a steady handwriting reveal, compact responsive sizing, and the full matching logo as the favicon
 - Four interactive lookbook chapters with keyboard navigation
 - Scroll reveals, a moving editorial ribbon and a mobile menu
 - Configurable boutique contact links and details
@@ -23,3 +24,5 @@ Edit `config.js` to add confirmed public details. Empty fields are hidden. A val
 ## Check
 
 Run `node --test tests/showcase.test.cjs`. The browser test uses Playwright from a local installation or the sibling `ws-app` workspace, and Microsoft Edge on Windows.
+
+The logo assets can be regenerated from the supplied `PROFILE.png` with `python tools/trace-logo.py path/to/PROFILE.png` (requires Pillow and NumPy). The trace preserves the original ink silhouette; the preloader animates a pen mask over it.

@@ -1,88 +1,187 @@
 ﻿<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#351b24">
-  <meta name="description" content="Step into the world of Wabi Sabi. Explore an editorial story of bridal, occasionwear, menswear and jewellery for moments worth remembering.">
+  <meta name="description"
+    content="Step into the world of Wabi Sabi. Explore an editorial story of bridal, occasionwear, menswear and jewellery for moments worth remembering.">
   <title>Wabi Sabi | The Art of Arriving</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
-  <noscript><style>.preloader{display:none}</style></noscript>
+  <noscript>
+    <style>
+      .preloader {
+        display: none
+      }
+    </style>
+  </noscript>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="preloader" id="preloader" role="status" aria-label="Loading Wabi Sabi">
     <div class="preloader-inner">
-      <span class="preloader-mark" aria-hidden="true">✧</span>
-      <span class="preloader-name">WABI <i>SABI</i></span>
+      <img class="preloader-logo" src="assets/logo-animated.svg" alt="Wabi Sabi" width="684" height="146"
+        fetchpriority="high">
+      <span class="preloader-name">WABI SABI</span>
       <span class="preloader-caption">AN OCCASION TO REMEMBER</span>
-      <span class="preloader-line" aria-hidden="true"><span></span></span>
     </div>
     <button class="preloader-skip" type="button">SKIP INTRO <span class="icon-arrow" aria-hidden="true"></span></button>
   </div>
   <header class="site-header" id="site-header">
-    <a class="brand" href="#home" aria-label="Wabi Sabi home"><span class="brand-name">WABI <i>SABI</i></span><span class="brand-caption">OCCASIONWEAR</span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#collections">The collections</a><a href="#story">Our story</a><a href="#details">The details</a></nav>
+    <a class="brand" href="#home" aria-label="Wabi Sabi home"><img class="brand-logo" src="assets/logo.svg" alt=""
+        width="684" height="146"><span class="brand-caption">OCCASIONWEAR</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#collections">The
+        collections</a><a href="#story">Our story</a><a href="#details">The details</a></nav>
     <a class="header-cta" href="#collections">EXPLORE LOOKBOOK <span class="icon-arrow" aria-hidden="true"></span></a>
-    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span></button>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu"
+      aria-expanded="false"><span></span><span></span></button>
   </header>
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
-    <a href="#home"><span>01</span>Home</a><a href="#collections"><span>02</span>The collections</a><a href="#story"><span>03</span>Our story</a><a href="#details"><span>04</span>The details</a><a href="#contact"><span>05</span>The finale</a>
+    <a href="#home"><span>01</span>Home</a><a href="#collections"><span>02</span>The collections</a><a
+      href="#story"><span>03</span>Our story</a><a href="#details"><span>04</span>The details</a><a
+      href="#contact"><span>05</span>The finale</a>
     <p>WABI SABI · OCCASIONWEAR</p>
   </nav>
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <img class="hero-image" src="assets/hero.png" alt="Editorial portrait in a burgundy embroidered lehenga beneath sunlit arches" width="1536" height="1024" fetchpriority="high">
+      <img class="hero-image" src="assets/hero.png"
+        alt="Editorial portrait in a burgundy embroidered lehenga beneath sunlit arches" width="1536" height="1024"
+        fetchpriority="high">
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> THE WORLD OF WABI SABI</p>
         <h1 id="hero-title">The art of<br><em>arriving.</em></h1>
         <p class="hero-intro">For the moments that deserve to be remembered, and the looks that make them yours.</p>
-        <a class="button button-light" href="#collections">EXPLORE THE COLLECTIONS <span class="icon-arrow" aria-hidden="true"></span></a>
+        <a class="button button-light" href="#collections">EXPLORE THE COLLECTIONS <span class="icon-arrow"
+            aria-hidden="true"></span></a>
       </div>
-      <div class="hero-bottom"><span>AN EDITORIAL JOURNEY IN OCCASIONWEAR</span><a href="#intro">SCROLL TO EXPLORE <span class="icon-arrow icon-arrow-down" aria-hidden="true"></span></a><span>01 / 04</span></div>
+      <div class="hero-bottom"><span>AN EDITORIAL JOURNEY IN OCCASIONWEAR</span><a href="#intro">SCROLL TO EXPLORE <span
+            class="icon-arrow icon-arrow-down" aria-hidden="true"></span></a><span>01 / 04</span></div>
       <span class="hero-side-note" aria-hidden="true">DRESS FOR THE MOMENT</span>
     </section>
     <section class="intro section-shell" id="intro" aria-labelledby="intro-title">
       <div class="intro-ornament" aria-hidden="true">✧</div>
       <p class="eyebrow reveal">A LITTLE MORE THAN AN OUTFIT</p>
       <h2 class="display-heading reveal" id="intro-title">Some moments ask for <em>something extraordinary.</em></h2>
-      <p class="intro-copy reveal">A celebration. A beginning. An evening that becomes a story. Wabi Sabi is an invitation to find a look that feels as unforgettable as the moment itself.</p>
+      <p class="intro-copy reveal">A celebration. A beginning. An evening that becomes a story. Wabi Sabi is an
+        invitation to find a look that feels as unforgettable as the moment itself.</p>
       <span class="section-flourish" aria-hidden="true">✦</span>
     </section>
     <section class="lookbook section-shell" id="collections" aria-labelledby="collections-title">
-      <div class="section-heading reveal"><div><p class="eyebrow">CHAPTERS OF THE COLLECTION</p><h2 class="display-heading" id="collections-title">The world, <em>beautifully dressed.</em></h2></div><p>Explore a collection of moods, moments and details. Each one tells a different story.</p></div>
-      <div class="lookbook-grid">
-        <button class="look-card look-card-large reveal" type="button" data-look="bridal" aria-label="Explore the bridal story"><img src="assets/studio-bridal.png" alt="Ivory embroidered bridal lehenga" width="1024" height="1536" loading="lazy"><span class="look-card-shade"></span><span class="look-card-index">01 / THE COLLECTION</span><span class="look-card-copy"><span>AN UNFORGETTABLE BEGINNING</span><strong>Bridal <i>stories</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span class="icon-arrow"></span></span></button>
-        <button class="look-card look-card-small reveal" type="button" data-look="groom" aria-label="Explore the groom story"><img src="assets/groom.png" alt="Ivory sherwani in a sunlit courtyard" width="1024" height="1536" loading="lazy"><span class="look-card-shade"></span><span class="look-card-index">02 / THE COLLECTION</span><span class="look-card-copy"><span>QUIETLY COMMANDING</span><strong>For <i>him</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span class="icon-arrow"></span></span></button>
-        <button class="look-card look-card-small reveal" type="button" data-look="celebration" aria-label="Explore the celebration story"><img src="assets/celebration.png" alt="Olive green embroidered celebration lehenga" width="1024" height="1536" loading="lazy"><span class="look-card-shade"></span><span class="look-card-index">03 / THE COLLECTION</span><span class="look-card-copy"><span>MADE FOR THE MEMORIES</span><strong>Celebration <i>wear</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span class="icon-arrow"></span></span></button>
-        <button class="look-card look-card-large reveal" type="button" data-look="jewellery" aria-label="Explore the jewellery story"><img src="assets/jewellery.png" alt="Gold and pearl jewellery on blush silk" width="1024" height="1024" loading="lazy"><span class="look-card-shade"></span><span class="look-card-index">04 / THE COLLECTION</span><span class="look-card-copy"><span>THE BEAUTY IS IN THE DETAILS</span><strong>Finishing <i>touches</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span class="icon-arrow"></span></span></button>
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">CHAPTERS OF THE COLLECTION</p>
+          <h2 class="display-heading" id="collections-title">The world, <em>beautifully dressed.</em></h2>
+        </div>
+        <p>Explore a collection of moods, moments and details. Each one tells a different story.</p>
       </div>
-      <p class="imagery-note">Images are editorial inspiration. Please confirm actual pieces and details with the boutique.</p>
+      <div class="lookbook-grid">
+        <button class="look-card look-card-large reveal" type="button" data-look="bridal"
+          aria-label="Explore the bridal story"><img src="assets/studio-bridal.png"
+            alt="Ivory embroidered bridal lehenga" width="1024" height="1536" loading="lazy"><span
+            class="look-card-shade"></span><span class="look-card-index">01 / THE COLLECTION</span><span
+            class="look-card-copy"><span>AN UNFORGETTABLE BEGINNING</span><strong>Bridal
+              <i>stories</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span
+              class="icon-arrow"></span></span></button>
+        <button class="look-card look-card-small reveal" type="button" data-look="groom"
+          aria-label="Explore the groom story"><img src="assets/groom.png" alt="Ivory sherwani in a sunlit courtyard"
+            width="1024" height="1536" loading="lazy"><span class="look-card-shade"></span><span
+            class="look-card-index">02 / THE COLLECTION</span><span class="look-card-copy"><span>QUIETLY
+              COMMANDING</span><strong>For <i>him</i></strong></span><span class="look-card-arrow"
+            aria-hidden="true"><span class="icon-arrow"></span></span></button>
+        <button class="look-card look-card-small reveal" type="button" data-look="celebration"
+          aria-label="Explore the celebration story"><img src="assets/celebration.png"
+            alt="Olive green embroidered celebration lehenga" width="1024" height="1536" loading="lazy"><span
+            class="look-card-shade"></span><span class="look-card-index">03 / THE COLLECTION</span><span
+            class="look-card-copy"><span>MADE FOR THE MEMORIES</span><strong>Celebration
+              <i>wear</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span
+              class="icon-arrow"></span></span></button>
+        <button class="look-card look-card-large reveal" type="button" data-look="jewellery"
+          aria-label="Explore the jewellery story"><img src="assets/jewellery.png"
+            alt="Gold and pearl jewellery on blush silk" width="1024" height="1024" loading="lazy"><span
+            class="look-card-shade"></span><span class="look-card-index">04 / THE COLLECTION</span><span
+            class="look-card-copy"><span>THE BEAUTY IS IN THE DETAILS</span><strong>Finishing
+              <i>touches</i></strong></span><span class="look-card-arrow" aria-hidden="true"><span
+              class="icon-arrow"></span></span></button>
+      </div>
+      <p class="imagery-note">Images are editorial inspiration. Please confirm actual pieces and details with the
+        boutique.</p>
     </section>
-    <div class="marquee" aria-hidden="true"><div class="marquee-track">DRESS FOR THE MOMENT <span>✧</span> TREASURE THE MEMORY <span>✧</span> DRESS FOR THE MOMENT <span>✧</span> TREASURE THE MEMORY <span>✧</span></div></div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">DRESS FOR THE MOMENT <span>✧</span> TREASURE THE MEMORY <span>✧</span> DRESS FOR THE
+        MOMENT <span>✧</span> TREASURE THE MEMORY <span>✧</span></div>
+    </div>
     <section class="story" id="story" aria-labelledby="story-title">
-      <div class="story-image-wrap reveal"><img src="assets/studio-hero.png" alt="Blush embellished gown in a light-filled studio" width="1536" height="1024" loading="lazy"><span class="image-caption">THE BEAUTY OF BEING YOURSELF · WABI SABI</span></div>
-      <div class="story-content reveal"><span class="story-ornament" aria-hidden="true">✧</span><p class="eyebrow">OUR POINT OF VIEW</p><h2 class="display-heading" id="story-title">A sense of occasion.<br><em>A sense of you.</em></h2><p>We believe the most memorable look is the one you feel at home in. The colour that catches your eye. The detail you keep coming back to. The way you carry yourself when it all comes together.</p><p>That feeling is where every Wabi Sabi story begins.</p><a class="text-link" href="#details">EXPLORE THE DETAILS <span class="icon-arrow" aria-hidden="true"></span></a></div>
+      <div class="story-image-wrap reveal"><img src="assets/studio-hero.png"
+          alt="Blush embellished gown in a light-filled studio" width="1536" height="1024" loading="lazy"><span
+          class="image-caption">THE BEAUTY OF BEING YOURSELF · WABI SABI</span></div>
+      <div class="story-content reveal"><span class="story-ornament" aria-hidden="true">✧</span>
+        <p class="eyebrow">OUR POINT OF VIEW</p>
+        <h2 class="display-heading" id="story-title">A sense of occasion.<br><em>A sense of you.</em></h2>
+        <p>We believe the most memorable look is the one you feel at home in. The colour that catches your eye. The
+          detail you keep coming back to. The way you carry yourself when it all comes together.</p>
+        <p>That feeling is where every Wabi Sabi story begins.</p><a class="text-link" href="#details">EXPLORE THE
+          DETAILS <span class="icon-arrow" aria-hidden="true"></span></a>
+      </div>
     </section>
     <section class="details-section" id="details" aria-labelledby="details-title">
-      <div class="details-image reveal"><img src="assets/jewellery.png" alt="Gold necklace and earrings with pearls" width="1024" height="1024" loading="lazy"></div>
-      <div class="details-content reveal"><p class="eyebrow">THE FINISHING TOUCH</p><h2 class="display-heading" id="details-title">The little things<br>make it <em>magic.</em></h2><p>A glimmer of gold. A trace of embroidery. A detail that feels unmistakably yours. It is often the smallest things that stay with us the longest.</p><button class="text-link text-link-light" type="button" data-look="jewellery">VIEW THE JEWELLERY STORY <span class="icon-arrow" aria-hidden="true"></span></button></div>
+      <div class="details-image reveal"><img src="assets/jewellery.png" alt="Gold necklace and earrings with pearls"
+          width="1024" height="1024" loading="lazy"></div>
+      <div class="details-content reveal">
+        <p class="eyebrow">THE FINISHING TOUCH</p>
+        <h2 class="display-heading" id="details-title">The little things<br>make it <em>magic.</em></h2>
+        <p>A glimmer of gold. A trace of embroidery. A detail that feels unmistakably yours. It is often the smallest
+          things that stay with us the longest.</p><button class="text-link text-link-light" type="button"
+          data-look="jewellery">VIEW THE JEWELLERY STORY <span class="icon-arrow" aria-hidden="true"></span></button>
+      </div>
       <span class="details-outline" aria-hidden="true">W</span>
     </section>
     <section class="closing section-shell" id="contact" aria-labelledby="closing-title">
-      <p class="eyebrow reveal">YOUR NEXT CHAPTER AWAITS</p><h2 class="display-heading reveal" id="closing-title">Let the moment<br><em>be yours.</em></h2><p class="reveal">The most beautiful occasions begin with a feeling. Discover what speaks to you, and let the story continue.</p>
-      <div class="contact-links reveal" id="contact-links"><a class="button button-dark" href="#collections">EXPLORE THE LOOKBOOK <span class="icon-arrow" aria-hidden="true"></span></a></div>
+      <p class="eyebrow reveal">YOUR NEXT CHAPTER AWAITS</p>
+      <h2 class="display-heading reveal" id="closing-title">Let the moment<br><em>be yours.</em></h2>
+      <p class="reveal">The most beautiful occasions begin with a feeling. Discover what speaks to you, and let the
+        story continue.</p>
+      <div class="contact-links reveal" id="contact-links"><a class="button button-dark" href="#collections">EXPLORE THE
+          LOOKBOOK <span class="icon-arrow" aria-hidden="true"></span></a></div>
       <div class="contact-details" id="contact-details"></div><span class="closing-ornament" aria-hidden="true">✧</span>
     </section>
   </main>
-  <footer class="site-footer"><div class="footer-main"><a class="footer-brand" href="#home">WABI <i>SABI</i><span>OCCASIONWEAR</span></a><p>For all the moments worth remembering.</p><nav aria-label="Footer navigation"><a href="#collections">Collections</a><a href="#story">Our story</a><a href="#details">Details</a><a href="#contact">The finale</a></nav></div><div class="footer-bottom"><span>© <span id="year"></span> Wabi Sabi</span><span>AN OCCASION TO REMEMBER</span><a href="#home">BACK TO TOP <span class="icon-arrow icon-arrow-up" aria-hidden="true"></span></a></div></footer>
-  <dialog class="look-dialog" id="look-dialog" aria-labelledby="look-dialog-title"><button class="dialog-close" type="button" aria-label="Close collection story">×</button><div class="dialog-image-wrap"><img id="look-dialog-image" src="assets/studio-bridal.png" alt="" width="1024" height="1536"></div><div class="dialog-copy"><p class="eyebrow">THE WABI SABI LOOKBOOK <span id="look-dialog-count">01 / 04</span></p><h2 id="look-dialog-title"></h2><p id="look-dialog-description"></p><p class="dialog-disclaimer">Editorial inspiration. Actual designs and availability are confirmed by the boutique.</p><div class="dialog-controls"><button type="button" id="look-prev" aria-label="Previous story"><span class="icon-arrow icon-arrow-left" aria-hidden="true"></span></button><span>EXPLORE THE STORIES</span><button type="button" id="look-next" aria-label="Next story"><span class="icon-arrow icon-arrow-right" aria-hidden="true"></span></button></div></div></dialog>
+  <footer class="site-footer">
+    <div class="footer-main"><a class="footer-brand" href="#home" aria-label="Wabi Sabi home"><img class="footer-logo"
+          src="assets/logo.svg" alt="" width="684" height="146"><span>OCCASIONWEAR</span></a>
+      <p>For all the moments worth remembering.</p>
+      <nav aria-label="Footer navigation"><a href="#collections">Collections</a><a href="#story">Our story</a><a
+          href="#details">Details</a><a href="#contact">The finale</a></nav>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Wabi Sabi</span><span>AN OCCASION TO REMEMBER</span><a
+        href="#home">BACK TO TOP <span class="icon-arrow icon-arrow-up" aria-hidden="true"></span></a></div>
+  </footer>
+  <dialog class="look-dialog" id="look-dialog" aria-labelledby="look-dialog-title"><button class="dialog-close"
+      type="button" aria-label="Close collection story">×</button>
+    <div class="dialog-image-wrap"><img id="look-dialog-image" src="assets/studio-bridal.png" alt="" width="1024"
+        height="1536"></div>
+    <div class="dialog-copy">
+      <p class="eyebrow">THE WABI SABI LOOKBOOK <span id="look-dialog-count">01 / 04</span></p>
+      <h2 id="look-dialog-title"></h2>
+      <p id="look-dialog-description"></p>
+      <p class="dialog-disclaimer">Editorial inspiration. Actual designs and availability are confirmed by the boutique.
+      </p>
+      <div class="dialog-controls"><button type="button" id="look-prev" aria-label="Previous story"><span
+            class="icon-arrow icon-arrow-left" aria-hidden="true"></span></button><span>EXPLORE THE
+          STORIES</span><button type="button" id="look-next" aria-label="Next story"><span
+            class="icon-arrow icon-arrow-right" aria-hidden="true"></span></button></div>
+    </div>
+  </dialog>
 </body>
+
 </html>
