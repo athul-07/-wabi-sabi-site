@@ -12,7 +12,8 @@
   --sans: "DM Sans", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-width: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
 body { margin: 0; background: var(--ivory); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 body.intro-loading, body.menu-open, body.dialog-open { overflow: hidden; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -80,7 +81,7 @@ img { display: block; max-width: 100%; }
 .hero-image, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-image { object-fit: cover; object-position: center 40%; animation: hero-in 1.8s ease both; }
 .hero-shade { background: linear-gradient(90deg, rgba(30,19,20,.67) 0%, rgba(40,25,22,.36) 45%, rgba(40,25,22,.04) 76%), linear-gradient(0deg, rgba(29,19,20,.48), transparent 25%); }
-.hero-content { position: relative; z-index: 1; width: min(670px, 65%); padding-top: clamp(225px, 27vh, 310px); margin-left: 10vw; }
+.hero-content { position: relative; z-index: 1; width: min(670px, 65%); padding-top: clamp(180px, 22vh, 260px); padding-bottom: 130px; margin-left: 10vw; }
 .hero-eyebrow { display: flex; align-items: center; gap: 18px; color: #f4e3c9; }
 .eyebrow-line { width: 37px; height: 1px; background: var(--gold-light); }
 .hero h1 { margin: 28px 0 22px; font-family: var(--serif); font-size: clamp(90px, 9.3vw, 154px); font-weight: 400; line-height: .78; letter-spacing: -.06em; }
@@ -91,6 +92,58 @@ img { display: block; max-width: 100%; }
 .hero-bottom a .icon-arrow { width: 16px; height: 16px; }
 .hero-side-note { position: absolute; z-index: 1; right: 2vw; top: 46%; writing-mode: vertical-rl; font-size: 9px; letter-spacing: .24em; }
 @keyframes hero-in { from { transform: scale(1.08); filter: brightness(.75); } to { transform: scale(1); filter: brightness(1); } }
+
+/* Launch countdown */
+.launch-announcement { width: min(390px, 100%); margin: 0 0 28px; padding-top: 20px; border-top: 1px solid rgba(228,205,167,.45); }
+.launch-message { margin: 0 0 6px; color: var(--gold-light); font-family: var(--serif); font-size: 30px; line-height: 1.15; }
+.launch-date { margin: 0; font-size: 14px; line-height: 1.6; }
+.launch-countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.launch-countdown > div { display: flex; flex-direction: column; gap: 6px; }
+.launch-countdown [data-countdown] { color: var(--gold-light); font-size: clamp(28px, 3vw, 40px); font-variant-numeric: tabular-nums; line-height: 1; }
+.countdown-label { font-size: 14px; line-height: 1.5; }
+
+/* Opening announcement, with a shared countdown that returns to the hero. */
+body.launch-open { overflow: hidden; }
+.launch-dialog { position: fixed; inset: 0; width: min(760px, calc(100% - 40px)); max-height: calc(100svh - 40px); margin: auto; padding: clamp(32px, 4.5vw, 56px); border: 0; border-radius: 8px; overflow: auto; scrollbar-width: none; background: transparent; color: var(--ivory); text-align: center; isolation: isolate; }
+.launch-dialog::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.launch-dialog::before { content: ""; position: absolute; inset: 0; z-index: -1; border: 1px solid rgba(228,205,167,.3); border-radius: inherit; background: radial-gradient(ellipse at 50% 0%, rgba(196,161,110,.12), transparent 65%), linear-gradient(150deg, #3d222c, #25151d); box-shadow: inset 0 0 0 8px #301c25, inset 0 0 0 9px rgba(228,205,167,.08); transition: opacity .65s ease; }
+.launch-dialog::backdrop { background: rgba(21,11,16,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: backdrop-filter .7s ease, background .7s ease; }
+.launch-dialog[open] { animation: launch-arrive .65s cubic-bezier(.22,1,.36,1); }
+.launch-modal-logo { width: min(230px, 60%); height: auto; margin: 0 auto 16px; filter: invert(1); opacity: .92; }
+.launch-modal-eyebrow { margin: 0 0 24px; color: var(--gold-light); font-size: 12px; line-height: 1.5; letter-spacing: .22em; }
+.launch-dialog .launch-announcement { width: 100%; margin: 0 0 30px; padding-top: 24px; border-top: 1px solid rgba(228,205,167,.18); transform-origin: top left; }
+.launch-dialog .launch-message { color: #f0dfc7; font-size: clamp(38px, 5.4vw, 60px); font-weight: 400; letter-spacing: -.025em; text-wrap: balance; }
+.launch-dialog .launch-date { margin-top: 12px; color: #cbbdb7; font-size: 14px; }
+.launch-dialog .launch-countdown { gap: 0; margin: 28px auto 0; max-width: 540px; }
+.launch-dialog .launch-countdown > div { position: relative; gap: 10px; padding-inline: 8px; }
+.launch-dialog .launch-countdown > div + div::before { content: ""; position: absolute; left: 0; top: 14%; height: 55%; width: 1px; background: linear-gradient(transparent, rgba(228,205,167,.25), transparent); }
+.launch-dialog [data-countdown] { color: #e4cda7; font-family: var(--serif); font-size: clamp(42px, 6.5vw, 72px); font-weight: 400; }
+.launch-dialog .countdown-label { color: #cbbdb7; font-size: 14px; letter-spacing: .08em; }
+.launch-dialog .launch-enter { min-width: 230px; justify-content: center; gap: 24px; border: 1px solid rgba(228,205,167,.45); background: transparent; color: #f0dfc7; font-size: 12px; letter-spacing: .12em; }
+.launch-dialog .launch-enter:hover { background: var(--gold-light); color: var(--wine); }
+.launch-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--gold-light); font-size: 28px; font-weight: 400; cursor: pointer; }
+.launch-close:hover { background: rgba(228,205,167,.12); }
+.launch-dialog .launch-close, .launch-modal-logo, .launch-modal-eyebrow, .launch-enter { transition: opacity .3s ease; }
+.launch-dialog.is-closing { overflow: visible; animation: none; }
+.launch-dialog.is-closing::before, .is-closing .launch-close, .is-closing .launch-modal-logo, .is-closing .launch-modal-eyebrow, .is-closing .launch-enter { opacity: 0; pointer-events: none; }
+.launch-dialog.is-closing::backdrop { background: transparent; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+@keyframes launch-arrive { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 520px) {
+  .launch-dialog { padding: 48px 22px 30px; }
+  .launch-modal-eyebrow { font-size: 12px; letter-spacing: .12em; }
+  .launch-dialog .launch-countdown > div { padding-inline: 4px; }
+  .launch-dialog .countdown-label { font-size: 14px; letter-spacing: 0; }
+}
+@media (max-height: 700px) {
+  .launch-dialog { padding-block: 30px 24px; }
+  .launch-modal-logo { width: min(170px, 50%); margin-bottom: 10px; }
+  .launch-modal-eyebrow { margin-bottom: 16px; }
+  .launch-dialog .launch-announcement { padding-top: 16px; margin-bottom: 20px; }
+  .launch-dialog .launch-message { font-size: clamp(32px, 5vw, 48px); }
+  .launch-dialog .launch-countdown { margin-top: 20px; }
+  .launch-dialog [data-countdown] { font-size: clamp(36px, 6vw, 56px); }
+  .launch-dialog .launch-enter { min-height: 48px; padding-block: 12px; }
+}
 
 /* Intro */
 .intro { position: relative; display: flex; flex-direction: column; align-items: center; min-height: 560px; padding-top: 130px; padding-bottom: 110px; text-align: center; background: var(--ivory); }
@@ -240,7 +293,7 @@ img { display: block; max-width: 100%; }
   .hero { min-height: 740px; min-height: 100svh; }
   .hero-image { object-position: 63% center; }
   .hero-shade { background: linear-gradient(90deg, rgba(30,19,20,.65), rgba(40,25,22,.1) 90%), linear-gradient(0deg, rgba(29,19,20,.72), transparent 55%); }
-  .hero-content { position: absolute; right: 22px; bottom: 130px; left: 22px; width: auto; padding: 0; margin: 0; }
+  .hero-content { position: relative; width: auto; padding: 160px 0 110px; margin: 0 22px; }
   .hero h1 { margin: 19px 0; font-size: clamp(79px, 15vw, 112px); }
   .hero-intro { max-width: 290px; font-size: 12px; }
   .hero-bottom { right: 22px; bottom: 27px; left: 22px; font-size: 8px; }
@@ -282,7 +335,6 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 520px) {
   .hero h1 { font-size: clamp(74px, 17vw, 98px); }
-  .hero-content { bottom: 110px; }
   .hero-intro { margin-bottom: 24px; }
   .hero .button { min-height: 49px; padding: 14px 16px; font-size: 9px; }
   .hero-bottom > span:last-child { display: none; }

@@ -6,6 +6,66 @@
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
 
+  // Use one fixed instant so visitors in every timezone see the same countdown.
+  const launchTime = Date.parse('2026-11-15T00:00:00+05:30');
+  const countdown = $('#launch-countdown');
+  const countdownFields = ['days', 'hours', 'minutes', 'seconds'].map(unit =>
+    countdown.querySelector(`[data-countdown="${unit}"]`));
+  let countdownInterval;
+  const updateCountdown = () => {
+    const remaining = Math.max(0, Math.ceil((launchTime - Date.now()) / 1000));
+    const values = [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24,
+      Math.floor(remaining / 60) % 60, remaining % 60];
+    countdownFields.forEach((field, index) => {
+      field.textContent = String(values[index]).padStart(2, '0');
+    });
+    countdown.hidden = false;
+    if (remaining === 0) {
+      $('#launch-message').textContent = 'The wait is over';
+      $('.launch-date').textContent = 'Our launch day has arrived · November 15, 2026';
+      countdown.setAttribute('aria-label', 'The launch countdown is complete');
+      clearInterval(countdownInterval);
+    }
+    return remaining;
+  };
+  if (updateCountdown() > 0) countdownInterval = setInterval(updateCountdown, 1000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) updateCountdown(); });
+
+  const launchDialog = $('#launch-dialog');
+  const announcement = $('.launch-announcement');
+  const homeSlot = $('#launch-home-slot');
+  let launchClosing = false;
+  const openLaunch = () => {
+    homeSlot.style.minHeight = `${announcement.getBoundingClientRect().height + 28}px`;
+    $('#launch-modal-slot').append(announcement);
+    document.body.classList.add('launch-open');
+    launchDialog.showModal();
+  };
+  const closeLaunch = async () => {
+    if (launchClosing || !launchDialog.open) return;
+    launchClosing = true;
+    const from = announcement.getBoundingClientRect();
+    const to = homeSlot.getBoundingClientRect();
+    launchDialog.classList.add('is-closing');
+    if (!reducedMotion) {
+      const flight = announcement.animate([
+        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+        { transform: `translate(${to.left - from.left}px, ${to.top - from.top}px) scale(${Math.min(390, to.width) / from.width})`, opacity: 0 }
+      ], { duration: 700, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'forwards' });
+      await flight.finished.catch(() => {});
+      flight.cancel();
+    }
+    homeSlot.append(announcement);
+    homeSlot.style.minHeight = '';
+    launchDialog.close();
+    document.body.classList.remove('launch-open');
+    $('.hero .button').focus({ preventScroll: true });
+    if (!reducedMotion) announcement.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
+  };
+  $('.launch-close').addEventListener('click', closeLaunch);
+  $('.launch-enter').addEventListener('click', closeLaunch);
+  launchDialog.addEventListener('cancel', event => { event.preventDefault(); closeLaunch(); });
+
   // The intro waits just long enough to be seen, with a firm limit for slow images.
   const preloader = $('#preloader');
   document.body.classList.add('intro-loading');
@@ -18,7 +78,7 @@
     $('.preloader-skip').disabled = true;
     preloader.classList.add('is-complete');
     preloader.setAttribute('aria-hidden', 'true');
-    setTimeout(() => { preloader.hidden = true; }, reducedMotion ? 0 : 700);
+    setTimeout(() => { preloader.hidden = true; openLaunch(); }, reducedMotion ? 0 : 700);
   };
   const scheduleIntroFinish = () => {
     const remaining = reducedMotion ? 0 : Math.max(0, 2400 - (performance.now() - introStarted));

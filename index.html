@@ -62,6 +62,16 @@
         <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> THE WORLD OF WABI SABI</p>
         <h1 id="hero-title">The art of<br><em>arriving.</em></h1>
         <p class="hero-intro">For the moments that deserve to be remembered, and the looks that make them yours.</p>
+        <div id="launch-home-slot"><div class="launch-announcement">
+          <p class="launch-message" id="launch-message">We’re launching soon</p>
+          <p class="launch-date">Launching <time datetime="2026-11-15T00:00:00+05:30">November 15, 2026</time> · India time</p>
+          <div class="launch-countdown" id="launch-countdown" role="timer" aria-label="Time until the Wabi Sabi launch" aria-live="off" hidden>
+            <div><span data-countdown="days">00</span><span class="countdown-label">Days</span></div>
+            <div><span data-countdown="hours">00</span><span class="countdown-label">Hours</span></div>
+            <div><span data-countdown="minutes">00</span><span class="countdown-label">Minutes</span></div>
+            <div><span data-countdown="seconds">00</span><span class="countdown-label">Seconds</span></div>
+          </div>
+        </div></div>
         <a class="button button-light" href="#collections">EXPLORE THE COLLECTIONS <span class="icon-arrow"
             aria-hidden="true"></span></a>
       </div>
@@ -166,6 +176,13 @@
     <div class="footer-bottom"><span>© <span id="year"></span> Wabi Sabi</span><span>AN OCCASION TO REMEMBER</span><a
         href="#home">BACK TO TOP <span class="icon-arrow icon-arrow-up" aria-hidden="true"></span></a></div>
   </footer>
+  <dialog class="launch-dialog" id="launch-dialog" aria-labelledby="launch-message">
+    <button class="launch-close" type="button" aria-label="Close launch announcement">×</button>
+    <img class="launch-modal-logo" src="assets/logo.svg" alt="Wabi Sabi" width="684" height="146">
+    <p class="launch-modal-eyebrow">AN OCCASION TO REMEMBER</p>
+    <div id="launch-modal-slot"></div>
+    <button class="button button-light launch-enter" type="button">EXPLORE WABI SABI <span class="icon-arrow" aria-hidden="true"></span></button>
+  </dialog>
   <dialog class="look-dialog" id="look-dialog" aria-labelledby="look-dialog-title"><button class="dialog-close"
       type="button" aria-label="Close collection story">×</button>
     <div class="dialog-image-wrap"><img id="look-dialog-image" src="assets/studio-bridal.png" alt="" width="1024"

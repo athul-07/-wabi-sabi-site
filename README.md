@@ -9,6 +9,8 @@ Open `index.html` directly, or run `node serve.cjs` and visit http://localhost:4
 ## Experience
 
 - Burgundy and champagne visual direction with image-led storytelling
+- Live launch countdown to November 15, 2026 at midnight India time (UTC+05:30), with a completed state after the launch date
+- Centered launch modal after the intro, with a blurred backdrop, close and explore buttons, Escape support, and a smooth countdown transition into the homepage (instant with reduced motion)
 - Short, skippable preloader with a reduced-motion alternative
 - Supplied signature logo fitted to smooth SVG curves, with a steady handwriting reveal, compact responsive sizing, and the full matching logo as the favicon
 - Four interactive lookbook chapters with keyboard navigation
