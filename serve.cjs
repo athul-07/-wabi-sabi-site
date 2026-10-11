@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = __dirname;
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
+types['.txt'] = 'text/plain; charset=utf-8';
+types['.xml'] = 'application/xml; charset=utf-8';
 function createServer() {
   return http.createServer((req, res) => {
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405); return res.end(); }

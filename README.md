@@ -19,6 +19,14 @@ Open `index.html` directly, or run `node serve.cjs` and visit http://localhost:4
 
 The images are editorial inspiration, not a record of current shop stock. Replace them with approved brand photography when available.
 
+## Search visibility
+
+The homepage targets dance dress rentals in Kerala and related dance costume rental searches through its title, description, visible heading and useful enquiry copy. Open Graph and Twitter metadata use the same positioning. Keep rental claims aligned with the actual service; the lookbook remains editorial inspiration.
+
+The production URL is `https://www.wabisabibymk.com/`. The canonical link, Open Graph URL and `sitemap.xml` use that address; `robots.txt` allows crawling and points to the sitemap. Deploy both files at the domain root alongside `index.html`, and submit `https://www.wabisabibymk.com/sitemap.xml` in Google Search Console after deployment.
+
+Add the verified town, address and contact details before introducing local business structured data; the current demo contact values are not suitable for it. Update the pre-launch descriptions and introductory copy when the shop opens.
+
 ## Boutique details
 
 Edit `config.js` to add confirmed public details. Empty fields are hidden. A valid WhatsApp number adds a message button; otherwise a valid Instagram link adds an Instagram button. Phone, address, hours and map links appear only when supplied.
