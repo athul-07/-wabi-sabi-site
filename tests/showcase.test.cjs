@@ -11,7 +11,7 @@ test('invitation countdown uses IST, finishes at zero, and fits mobile', { timeo
   let browser;
   try {
     browser = await chromium.launch({ headless: true, ...(process.platform === 'win32' ? { channel: 'msedge' } : {}) });
-    const page = await browser.newPage({ timezoneId: 'America/New_York' });
+    const page = await browser.newPage({ timezoneId: 'America/New_York', reducedMotion: 'no-preference' });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.clock.install({ time: new Date('2026-10-28T16:59:58+05:30') });
@@ -26,11 +26,14 @@ test('invitation countdown uses IST, finishes at zero, and fits mobile', { timeo
     await expect(page.locator('#launch-message')).toContainText('THE WAIT IS OVER');
     await page.clock.runFor(5000);
     assert.deepEqual(await digits.allTextContents(), ['00', '00', '00', '00']);
-    await page.getByRole('button', { name: 'Pause animation' }).click();
+    if (await page.locator('.motion-toggle').count()) {
+      await page.getByRole('button', { name: 'Pause animation' }).click();
     await expect(page.getByRole('button', { name: 'Resume animation' })).toHaveAttribute('aria-pressed', 'true');
-    for (const width of [320, 390, 768, 1440]) {
-      await page.setViewportSize({ width, height: 900 });
+    }
+    for (const [width, height] of [[320,568], [360,640], [390,844], [430,932], [768,1024], [1024,768], [1366,768], [1440,900], [1920,1080], [667,375], [844,390]]) {
+      await page.setViewportSize({ width, height });
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `No overflow at ${width}px`);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'Fits height at ' + width + 'x' + height);
       await expect(page.locator('h1')).toHaveText('You are invited.');
       await expect(page.locator('.venue')).toContainText('Kallampara, Nedumangad');
     }
@@ -47,4 +50,9 @@ test('invitation countdown uses IST, finishes at zero, and fits mobile', { timeo
     await new Promise(resolve => server.close(resolve));
   }
 });
+
+
+
+
+
 

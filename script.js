@@ -30,6 +30,7 @@
     particles.append(particle);
   }
   const toggle = document.querySelector('.motion-toggle');
+  if (!toggle) return;
   toggle.hidden = false;
   function setPaused(paused) {
     document.body.classList.toggle('motion-paused', paused);
@@ -41,3 +42,4 @@
   toggle.hidden = preference.matches;
   preference.addEventListener('change', event => { toggle.hidden = event.matches; });
 })();
+
