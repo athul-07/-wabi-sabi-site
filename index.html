@@ -27,8 +27,26 @@
 </head>
 
 <body>
+  <div class="ribbon-intro" aria-hidden="true">
+    <svg class="ribbon-fabric" viewBox="0 0 1200 360" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="ceremony-satin" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e5bc83"/><stop offset=".025" stop-color="#641c2f"/><stop offset=".18" stop-color="#b94e64"/><stop offset=".34" stop-color="#e0919d"/><stop offset=".48" stop-color="#b44259"/><stop offset=".8" stop-color="#7b233b"/><stop offset=".975" stop-color="#c46b7c"/><stop offset="1" stop-color="#e5bc83"/>
+        </linearGradient>
+      </defs>
+      <g class="fabric-left"><path class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
+      <g class="fabric-right"><path class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
+    </svg>
+    <svg class="ceremony-scissors" viewBox="0 0 120 160" width="120" height="160">
+      <defs><linearGradient id="scissor-gold"><stop stop-color="#936127"/><stop offset=".45" stop-color="#fff0bb"/><stop offset=".7" stop-color="#d0a051"/><stop offset="1" stop-color="#f6d992"/></linearGradient><linearGradient id="scissor-steel"><stop stop-color="#9a9a9e"/><stop offset=".5" stop-color="#fff9ed"/><stop offset="1" stop-color="#c4b5a2"/></linearGradient></defs>
+      <g class="blade-one"><path d="M43 47 64 78 91 142 Q83 141 78 132 L57 83 37 51Z" fill="url(#scissor-steel)"/><ellipse cx="36" cy="30" rx="17" ry="23" fill="none" stroke="url(#scissor-gold)" stroke-width="7"/></g>
+      <g class="blade-two"><path d="M77 47 56 78 29 142 Q37 141 42 132 L63 83 83 51Z" fill="url(#scissor-steel)"/><ellipse cx="84" cy="30" rx="17" ry="23" fill="none" stroke="url(#scissor-gold)" stroke-width="7"/></g>
+      <circle cx="60" cy="80" r="6" fill="url(#scissor-gold)"/><path d="m57 80 6 0" stroke="#84602e" stroke-width="1.5"/>
+    </svg>
+  </div>
   <div class="curtain curtain-left" aria-hidden="true"></div>
   <div class="curtain curtain-right" aria-hidden="true"></div>
+  <div class="logo-intro" aria-hidden="true"><img src="assets/logo.svg" alt="" width="684" height="146"></div>
   <div class="ambient" aria-hidden="true"></div>
   <div class="particles" aria-hidden="true"></div>
   <!-- <button class="motion-toggle" type="button" aria-pressed="false" hidden>Pause animation</button> -->
@@ -36,7 +54,7 @@
     <div class="frame" aria-hidden="true"><span>✧</span><span>✧</span><span>✧</span><span>✧</span></div>
     <header class="brand entrance">
       <img src="assets/logo.svg" alt="Wabi Sabi" width="684" height="146" fetchpriority="high">
-      <p>WABI SABI <span>·</span> OCCASIONWEAR</p>
+      <div class="brand-title">Wabi Sabi</div><p class="brand-subtitle">Rentals and Sales</p>
     </header>
     <div class="invitation-copy entrance">
       <p class="eyebrow">A NEW BEGINNING. A SPECIAL EVENING.</p>
@@ -73,3 +91,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

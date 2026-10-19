@@ -89,3 +89,192 @@ footer p {font-size:clamp(16px,2.4svh,20px);max-width:none;margin-bottom:8px;lin
   .brand p {margin-bottom:14px}
   .ornament {margin:10px 0}
 }
+/* Give the brand name priority over the invitation and countdown. */
+.brand-title {
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(46px,7svh,68px);
+  font-weight:600;
+  line-height:1;
+  margin-top:6px;
+  letter-spacing:-1px;
+}
+.brand .brand-subtitle {
+  font-size:clamp(11px,1.4vw,14px);
+  letter-spacing:2px;
+  font-weight:400;
+  margin-top:5px;
+}
+h1 {font-size:clamp(38px,6.5svh,60px);line-height:.95}
+.countdown [data-countdown] {font-size:clamp(30px,4.5svh,40px)}
+.countdown b {font-size:20px;margin-top:5px}
+@media(max-height:650px) and (max-width:600px) {
+  .brand-title {font-size:44px}
+  .brand .brand-subtitle {font-size:11px;margin-bottom:6px}
+  h1 {font-size:32px}
+  .countdown [data-countdown] {font-size:29px}
+}
+@media(max-height:500px) and (min-width:600px) {
+  .brand-title {font-size:42px}
+  .brand .brand-subtitle {font-size:11px;margin-bottom:0}
+  h1 {font-size:36px}
+  .countdown [data-countdown] {font-size:30px}
+}
+@media(max-height:650px) and (max-width:600px) {
+  h1 {font-size:30px;letter-spacing:-1px}
+  h1 em {display:inline}
+}
+/* Narrow screens and phone browser toolbars must not clip the invitation. */
+html {text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body {min-width:0}
+.invitation {
+  --edge:clamp(14px,3vw,20px);
+  width:calc(100% - var(--edge) * 2);
+  margin:var(--edge) auto;
+  min-height:calc(100svh - var(--edge) * 2);
+  padding-left:max(12px,env(safe-area-inset-left));
+  padding-right:max(12px,env(safe-area-inset-right));
+}
+.brand,.invitation-copy,footer {width:100%}
+.brand img {width:min(100%,clamp(220px,32vw,330px))}
+.brand-title {font-size:clamp(42px,min(7svh,12vw),68px)}
+.brand .brand-subtitle {line-height:1.5}
+h1 {letter-spacing:-1px}
+.venue {flex-wrap:wrap;text-wrap:balance}
+.event-date,.launch-intro,footer p {text-wrap:balance}
+.event-time {line-height:1.5}
+.countdown-section {flex-shrink:0}
+.countdown [data-countdown] {overflow-wrap:anywhere}
+.frame span {font-size:24px;padding:2px}
+.frame span:nth-child(1),.frame span:nth-child(2) {top:-13px}
+.frame span:nth-child(3),.frame span:nth-child(4) {bottom:-13px}
+.frame span:nth-child(1),.frame span:nth-child(3) {left:-13px}
+.frame span:nth-child(2),.frame span:nth-child(4) {right:-13px}
+@media(max-width:359px) {
+  .event-date {font-size:clamp(25px,8.5vw,29px)}
+  .event-time {font-size:11px;letter-spacing:1px}
+  .event-time span {margin-inline:6px}
+  .venue {font-size:14px}
+  .brand img {width:min(100%,220px)}
+  .eyebrow {letter-spacing:.8px}
+  .countdown-section h2 {letter-spacing:1px}
+}
+@media(max-width:600px) and (min-height:651px) and (max-height:760px) {
+  .invitation {padding-block:14px}
+  .brand .brand-subtitle {margin-bottom:12px}
+  h1 {font-size:38px;margin-block:12px}
+  .ornament {margin-block:8px}
+  .launch-intro {margin-bottom:12px}
+  .countdown-section {margin-top:14px;padding-top:12px}
+  footer {margin-top:12px}
+}
+@media(max-height:500px) and (min-width:560px) {
+  .invitation {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:clamp(12px,3vw,28px);align-content:center;padding-block:14px}
+  .brand {grid-column:1;grid-row:1}
+  .invitation-copy {grid-column:2;grid-row:1 / 4}
+  .countdown-section {grid-column:1;grid-row:2;justify-self:center;margin-top:10px;padding-top:8px}
+  footer {grid-column:1;grid-row:3;margin-top:10px}
+  .brand img {width:min(100%,200px)}
+  .brand-title {font-size:38px}
+  .brand .brand-subtitle {font-size:11px;margin-bottom:0;letter-spacing:1px}
+  h1 {font-size:32px;margin:8px 0}
+  h1 em {display:inline}
+  .event-date {font-size:28px}
+  .venue {font-size:14px}
+  .launch-intro {font-size:16px;margin-bottom:10px}
+  .event-time {font-size:11px;margin:6px 0 8px;letter-spacing:1px}
+  .event-time span {margin-inline:4px}
+  .countdown [data-countdown] {font-size:28px}
+  footer p {font-size:15px}
+  footer .footer-star {display:none}
+}
+/* On unusually short screens or when zoomed, retain natural vertical scrolling. */
+@media(max-height:360px) {
+  .invitation {justify-content:flex-start;align-content:start}
+}
+@media(max-width:359px) and (max-height:760px) {
+  .invitation {padding-block:10px}
+  .brand-title {font-size:42px}
+  .brand .brand-subtitle {margin-bottom:8px}
+  h1 {font-size:30px;margin:8px 0}
+  h1 em {display:inline}
+  .ornament {margin:6px 0}
+  .launch-intro {font-size:16px;margin-bottom:10px}
+  .countdown-section {margin-top:10px;padding-top:8px}
+  footer {margin-top:10px}
+  footer p {font-size:15px}
+  footer .footer-star {display:none}
+}
+@media(min-width:601px) and (min-height:501px) and (max-height:800px) {
+  h1 {font-size:38px}
+  h1 em {display:inline}
+  .brand img {width:270px}
+  .countdown-section {margin-top:16px;padding-top:12px}
+}
+
+/* One continuous opening sequence: cut, release, curtains, logo, details. */
+.ribbon-intro,.logo-intro {display:none}
+@media(prefers-reduced-motion:no-preference) {
+  .ribbon-intro {display:block;position:fixed;inset:0;z-index:5;overflow:hidden;pointer-events:none;animation:ceremony-end .5s 4.1s both}
+  .ribbon-fabric {position:absolute;left:0;top:calc(50% - 151px);width:100%;height:360px;overflow:visible;filter:drop-shadow(0 9px 9px #10061170)}
+  .fabric-right {transform:translateX(1200px) scaleX(-1)}
+  .fabric-left {animation:fabric-release-left 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
+  .fabric-right {animation:fabric-release-right 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
+  .fabric-shape {animation:fabric-drape 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
+  .ceremony-scissors {position:absolute;left:50%;top:calc(50% - 126px);width:120px;height:160px;filter:drop-shadow(0 4px 3px #140a1660);animation:scissors-placement 2.6s both;transform:translateX(-50%)}
+  .blade-one,.blade-two {transform-origin:60px 80px}
+  .blade-one {animation:blade-close-left .55s 1.1s cubic-bezier(.4,0,.2,1) both}
+  .blade-two {animation:blade-close-right .55s 1.1s cubic-bezier(.4,0,.2,1) both}
+  .curtain {animation-delay:4.4s}
+  .logo-intro {display:flex;position:fixed;inset:0;z-index:2;align-items:center;justify-content:center;background:var(--wine);pointer-events:none;overflow:hidden;animation:ceremony-end .8s 8.9s both}
+  .logo-intro img {width:min(78vw,640px);height:auto;filter:invert(92%) sepia(15%) saturate(430%) hue-rotate(339deg) brightness(99%);animation:logo-reveal 3s 5.2s cubic-bezier(.22,.61,.36,1) both}
+  .brand.entrance,.invitation-copy.entrance {animation:none}
+  .brand img {animation:detail-arrival 1s 9s both}
+  .brand-title {animation:detail-arrival .9s 9.3s both}
+  .brand-subtitle {animation:detail-arrival .9s 9.45s both}
+  .invitation-copy > * {animation:detail-arrival .8s calc(9.7s + var(--detail-delay,0s)) both}
+  .invitation-copy h1 {--detail-delay:.15s}
+  .invitation-copy .ornament {--detail-delay:.3s}
+  .invitation-copy .launch-intro {--detail-delay:.45s}
+  .invitation-copy .launch-label {--detail-delay:.6s}
+  .invitation-copy .event-date {--detail-delay:.7s}
+  .invitation-copy .event-time {--detail-delay:.8s}
+  .invitation-copy .venue {--detail-delay:.9s}
+  .countdown-section.entrance {animation:detail-arrival .8s 10.75s both}
+  footer.entrance {animation:detail-arrival .8s 10.9s both}
+}
+@keyframes scissors-placement {
+  0% {opacity:0;transform:translate(-50%,-35px) rotate(-8deg)}
+  35%,65% {opacity:1;transform:translate(-50%,0) rotate(0)}
+  82% {opacity:1;transform:translate(-50%,0) rotate(0)}
+  100% {opacity:0;transform:translate(-50%,-25px) rotate(5deg)}
+}
+@keyframes blade-close-left {from{transform:rotate(-8deg)}to{transform:rotate(26deg)}}
+@keyframes blade-close-right {from{transform:rotate(8deg)}to{transform:rotate(-26deg)}}
+@keyframes fabric-drape {
+  0% {d:path('M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z')}
+  35% {d:path('M-30 120 C180 116 430 135 600 205 L600 257 C430 187 180 168 -30 172 Z')}
+  70% {d:path('M-30 120 C180 100 420 280 600 255 L600 307 C420 332 180 152 -30 172 Z')}
+  100% {d:path('M-30 120 C180 145 410 320 600 350 L600 402 C410 372 180 197 -30 172 Z')}
+}
+@keyframes fabric-release-left {
+  0% {transform:translate(0,0);opacity:1}
+  30% {transform:translate(-20px,4px);opacity:1}
+  65% {transform:translate(-170px,45px);opacity:1}
+  100% {transform:translate(-650px,180px);opacity:0}
+}
+@keyframes fabric-release-right {
+  0% {transform:translate(1200px,0) scaleX(-1);opacity:1}
+  30% {transform:translate(1220px,4px) scaleX(-1);opacity:1}
+  65% {transform:translate(1370px,45px) scaleX(-1);opacity:1}
+  100% {transform:translate(1850px,180px) scaleX(-1);opacity:0}
+}
+@keyframes logo-reveal {
+  0% {opacity:0;clip-path:inset(0 100% 0 0);transform:scale(.9) translateY(12px)}
+  20% {opacity:1;clip-path:inset(0 75% 0 0)}
+  75% {opacity:1;clip-path:inset(0 0 0 0);transform:scale(1.025) translateY(0)}
+  100% {opacity:1;clip-path:inset(0 0 0 0);transform:scale(1) translateY(0)}
+}
+@keyframes ceremony-end {from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
+@keyframes detail-arrival {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.motion-paused .ribbon-intro,.motion-paused .logo-intro {display:none}
+.motion-paused .brand *,.motion-paused .invitation-copy > * {animation:none}
