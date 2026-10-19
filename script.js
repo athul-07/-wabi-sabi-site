@@ -1,245 +1,43 @@
-(() => {
-  'use strict';
-
-  const $ = selector => document.querySelector(selector);
-  const $$ = selector => [...document.querySelectorAll(selector)];
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.documentElement.classList.add('js');
-
-  // Use one fixed instant so visitors in every timezone see the same countdown.
-  const launchTime = Date.parse('2026-11-15T00:00:00+05:30');
-  const countdown = $('#launch-countdown');
-  const countdownFields = ['days', 'hours', 'minutes', 'seconds'].map(unit =>
-    countdown.querySelector(`[data-countdown="${unit}"]`));
-  let countdownInterval;
-  const updateCountdown = () => {
-    const remaining = Math.max(0, Math.ceil((launchTime - Date.now()) / 1000));
-    const values = [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24,
-      Math.floor(remaining / 60) % 60, remaining % 60];
-    countdownFields.forEach((field, index) => {
-      field.textContent = String(values[index]).padStart(2, '0');
-    });
-    countdown.hidden = false;
-    if (remaining === 0) {
-      $('#launch-message').textContent = 'The wait is over';
-      $('.launch-date').textContent = 'Our launch day has arrived · November 15, 2026';
-      countdown.setAttribute('aria-label', 'The launch countdown is complete');
-      clearInterval(countdownInterval);
-    }
-    return remaining;
-  };
-  if (updateCountdown() > 0) countdownInterval = setInterval(updateCountdown, 1000);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) updateCountdown(); });
-
-  const launchDialog = $('#launch-dialog');
-  const announcement = $('.launch-announcement');
-  const homeSlot = $('#launch-home-slot');
-  let launchClosing = false;
-  const openLaunch = () => {
-    homeSlot.style.minHeight = `${announcement.getBoundingClientRect().height + 28}px`;
-    $('#launch-modal-slot').append(announcement);
-    document.body.classList.add('launch-open');
-    launchDialog.showModal();
-  };
-  const closeLaunch = async () => {
-    if (launchClosing || !launchDialog.open) return;
-    launchClosing = true;
-    const from = announcement.getBoundingClientRect();
-    const to = homeSlot.getBoundingClientRect();
-    launchDialog.classList.add('is-closing');
-    if (!reducedMotion) {
-      const flight = announcement.animate([
-        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-        { transform: `translate(${to.left - from.left}px, ${to.top - from.top}px) scale(${Math.min(390, to.width) / from.width})`, opacity: 0 }
-      ], { duration: 700, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'forwards' });
-      await flight.finished.catch(() => {});
-      flight.cancel();
-    }
-    homeSlot.append(announcement);
-    homeSlot.style.minHeight = '';
-    launchDialog.close();
-    document.body.classList.remove('launch-open');
-    $('.hero .button').focus({ preventScroll: true });
-    if (!reducedMotion) announcement.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
-  };
-  $('.launch-close').addEventListener('click', closeLaunch);
-  $('.launch-enter').addEventListener('click', closeLaunch);
-  launchDialog.addEventListener('cancel', event => { event.preventDefault(); closeLaunch(); });
-
-  // The intro waits just long enough to be seen, with a firm limit for slow images.
-  const preloader = $('#preloader');
-  document.body.classList.add('intro-loading');
-  let introFinished = false;
-  const introStarted = performance.now();
-  const finishIntro = () => {
-    if (introFinished) return;
-    introFinished = true;
-    document.body.classList.remove('intro-loading');
-    $('.preloader-skip').disabled = true;
-    preloader.classList.add('is-complete');
-    preloader.setAttribute('aria-hidden', 'true');
-    setTimeout(() => { preloader.hidden = true; openLaunch(); }, reducedMotion ? 0 : 700);
-  };
-  const scheduleIntroFinish = () => {
-    const remaining = reducedMotion ? 0 : Math.max(0, 2400 - (performance.now() - introStarted));
-    setTimeout(finishIntro, remaining);
-  };
-  if (document.readyState === 'complete') scheduleIntroFinish();
-  else window.addEventListener('load', scheduleIntroFinish, { once: true });
-  setTimeout(finishIntro, reducedMotion ? 0 : 3500);
-  $('.preloader-skip').addEventListener('click', finishIntro);
-
-  const header = $('#site-header');
-  const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 32);
-  updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
-
-  const mobileMenu = $('#mobile-menu');
-  const menuButton = $('.menu-toggle');
-  function closeMenu(restoreFocus = false) {
-    mobileMenu.hidden = true;
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation');
-    header.classList.remove('menu-active');
-    document.body.classList.remove('menu-open');
-    if (restoreFocus) menuButton.focus();
-  }
-  menuButton.addEventListener('click', () => {
-    const opening = mobileMenu.hidden;
-    mobileMenu.hidden = !opening;
-    menuButton.setAttribute('aria-expanded', String(opening));
-    menuButton.setAttribute('aria-label', opening ? 'Close navigation' : 'Open navigation');
-    header.classList.toggle('menu-active', opening);
-    document.body.classList.toggle('menu-open', opening);
-  });
-  $$('#mobile-menu a').forEach(link => link.addEventListener('click', () => closeMenu()));
-  window.addEventListener('resize', () => { if (innerWidth > 760 && !mobileMenu.hidden) closeMenu(); });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !mobileMenu.hidden) closeMenu(true);
-  });
-
-  if ('IntersectionObserver' in window && !reducedMotion) {
-    const revealObserver = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
+﻿(() => {
+  const launch = new Date('2026-10-28T17:00:00+05:30').getTime();
+  const countdown = document.querySelector('#launch-countdown');
+  const digits = [...document.querySelectorAll('[data-countdown]')];
+  const message = document.querySelector('#launch-message');
+  function updateCountdown() {
+    const remaining = Math.max(0, Math.floor((launch - Date.now()) / 1000));
+    const values = [Math.floor(remaining / 86400), Math.floor(remaining / 3600) % 24, Math.floor(remaining / 60) % 60, remaining % 60];
+    digits.forEach((element, index) => {
+      const next = String(values[index]).padStart(2, '0');
+      if (element.textContent !== next) {
+        element.textContent = next;
+        element.classList.remove('tick');
+        void element.offsetWidth;
+        element.classList.add('tick');
       }
-    }, { threshold: 0.08, rootMargin: '0px 0px -35px 0px' });
-    $$('.reveal').forEach(element => revealObserver.observe(element));
-  } else {
-    $$('.reveal').forEach(element => element.classList.add('is-visible'));
+    });
+    if (remaining === 0) message.textContent = 'THE WAIT IS OVER — A NEW CHAPTER BEGINS';
+    return remaining;
   }
-
-  const stories = [
-    {
-      id: 'bridal',
-      title: 'Bridal <em>stories</em>',
-      image: 'assets/studio-bridal.png',
-      alt: 'Ivory embroidered bridal lehenga',
-      description: 'For the beginning of a beautiful new chapter. Soft romance, considered details and a presence entirely your own.'
-    },
-    {
-      id: 'groom',
-      title: 'For <em>him</em>',
-      image: 'assets/groom.png',
-      alt: 'Ivory embroidered sherwani in a courtyard',
-      description: 'An entrance to remember. Timeless shapes and thoughtful details for the moments that call for confidence.'
-    },
-    {
-      id: 'celebration',
-      title: 'Celebration <em>wear</em>',
-      image: 'assets/celebration.png',
-      alt: 'Olive green embroidered celebration lehenga',
-      description: 'For dancing a little longer, smiling a little wider, and making every gathering feel like an occasion.'
-    },
-    {
-      id: 'jewellery',
-      title: 'Finishing <em>touches</em>',
-      image: 'assets/jewellery.png',
-      alt: 'Gold and pearl jewellery on blush silk',
-      description: 'The smallest details can hold the most meaning. A touch of light, a little sparkle, and a look that feels complete.'
-    }
-  ];
-  const dialog = $('#look-dialog');
-  let activeStory = 0;
-  const showStory = index => {
-    activeStory = (index + stories.length) % stories.length;
-    const story = stories[activeStory];
-    $('#look-dialog-title').innerHTML = story.title;
-    $('#look-dialog-description').textContent = story.description;
-    const image = $('#look-dialog-image');
-    image.src = story.image;
-    image.alt = story.alt;
-    $('#look-dialog-count').textContent = `${String(activeStory + 1).padStart(2, '0')} / 04`;
-  };
-  $$('[data-look]').forEach(button => button.addEventListener('click', () => {
-    const index = stories.findIndex(story => story.id === button.dataset.look);
-    if (index < 0) return;
-    showStory(index);
-    dialog.showModal();
-    document.body.classList.add('dialog-open');
-  }));
-  $('#look-prev').addEventListener('click', () => showStory(activeStory - 1));
-  $('#look-next').addEventListener('click', () => showStory(activeStory + 1));
-  $('.dialog-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => {
-    if (event.target === dialog) dialog.close();
-  });
-  dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
-  dialog.addEventListener('keydown', event => {
-    if (event.key === 'ArrowLeft') { event.preventDefault(); showStory(activeStory - 1); }
-    if (event.key === 'ArrowRight') { event.preventDefault(); showStory(activeStory + 1); }
-  });
-
-  const config = window.WABI_SABI_CONFIG || {};
-  const safeUrl = value => {
-    try {
-      const url = new URL(value);
-      return ['https:', 'http:'].includes(url.protocol) ? url.href : '';
-    } catch { return ''; }
-  };
-  const links = $('#contact-links');
-  const details = $('#contact-details');
-  const makeButton = (label, href) => {
-    const link = document.createElement('a');
-    link.className = 'button button-outline';
-    link.href = href;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = label;
-    const icon = document.createElement('span');
-    icon.className = 'icon-arrow';
-    icon.setAttribute('aria-hidden', 'true');
-    link.append(icon);
-    links.append(link);
-  };
-  const whatsapp = String(config.whatsappNumber || '').replace(/\D/g, '');
-  if (/^\d{8,15}$/.test(whatsapp)) makeButton('MESSAGE THE BOUTIQUE', `https://wa.me/${whatsapp}`);
-  else if (safeUrl(config.instagramUrl)) makeButton('FIND US ON INSTAGRAM', safeUrl(config.instagramUrl));
-  if (config.phoneDisplay) {
-    const link = document.createElement('a');
-    link.href = `tel:${String(config.phoneDisplay).replace(/[^+\d]/g, '')}`;
-    link.textContent = config.phoneDisplay;
-    details.append(link);
+  updateCountdown();
+  countdown.hidden = false;
+  const timer = setInterval(() => { if (updateCountdown() === 0) clearInterval(timer); }, 1000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) updateCountdown(); });
+  const particles = document.querySelector('.particles');
+  for (let i = 0; i < 28; i++) {
+    const particle = document.createElement('i');
+    particle.className = 'particle';
+    particle.style.cssText = `--x:${Math.random() * 100}%;--size:${1 + Math.random() * 2.5}px;--duration:${14 + Math.random() * 18}s;--delay:-${Math.random() * 32}s`;
+    particles.append(particle);
   }
-  for (const value of [config.address, config.openingHours]) {
-    if (!value) continue;
-    const item = document.createElement('p');
-    item.textContent = value;
-    details.append(item);
+  const toggle = document.querySelector('.motion-toggle');
+  toggle.hidden = false;
+  function setPaused(paused) {
+    document.body.classList.toggle('motion-paused', paused);
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.textContent = paused ? 'Resume animation' : 'Pause animation';
   }
-  if (safeUrl(config.mapUrl)) {
-    const map = document.createElement('a');
-    map.href = safeUrl(config.mapUrl);
-    map.target = '_blank';
-    map.rel = 'noopener noreferrer';
-    map.textContent = 'Find us on the map';
-    const icon = document.createElement('span');
-    icon.className = 'icon-arrow';
-    icon.setAttribute('aria-hidden', 'true');
-    map.append(icon);
-    details.append(map);
-  }
-  $('#year').textContent = new Date().getFullYear();
+  toggle.addEventListener('click', () => setPaused(toggle.getAttribute('aria-pressed') !== 'true'));
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  toggle.hidden = preference.matches;
+  preference.addEventListener('change', event => { toggle.hidden = event.matches; });
 })();
