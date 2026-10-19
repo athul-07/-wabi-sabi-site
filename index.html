@@ -30,12 +30,16 @@
   <div class="ribbon-intro" aria-hidden="true">
     <svg class="ribbon-fabric" viewBox="0 0 1200 360" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="ceremony-satin" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#e5bc83"/><stop offset=".025" stop-color="#641c2f"/><stop offset=".18" stop-color="#b94e64"/><stop offset=".34" stop-color="#e0919d"/><stop offset=".48" stop-color="#b44259"/><stop offset=".8" stop-color="#7b233b"/><stop offset=".975" stop-color="#c46b7c"/><stop offset="1" stop-color="#e5bc83"/>
+        <linearGradient id="ceremony-satin" x1="0" y1=".15" x2="1" y2=".65">
+          <stop offset="0" stop-color="#963a50"/><stop offset=".28" stop-color="#bc586c"/><stop offset=".52" stop-color="#b14e62"/><stop offset=".76" stop-color="#c16b7a"/><stop offset="1" stop-color="#ac4a5e"/>
         </linearGradient>
+        <pattern id="ribbon-weave" width="4" height="4" patternUnits="userSpaceOnUse">
+          <path d="M0 1H4 M1 0V4" stroke="#f4c6c8" stroke-opacity=".14" stroke-width=".5"/>
+          <path d="M0 3H4 M3 0V4" stroke="#602338" stroke-opacity=".12" stroke-width=".5"/>
+        </pattern>
       </defs>
-      <g class="fabric-left"><path class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
-      <g class="fabric-right"><path class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
+      <g class="fabric-left"><path id="cloth-left" class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/><path class="fabric-shape" fill="url(#ribbon-weave)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
+      <g class="fabric-right"><path id="cloth-right" class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/><path class="fabric-shape" fill="url(#ribbon-weave)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
     </svg>
     <svg class="ceremony-scissors" viewBox="0 0 120 160" width="120" height="160">
       <defs><linearGradient id="scissor-gold"><stop stop-color="#936127"/><stop offset=".45" stop-color="#fff0bb"/><stop offset=".7" stop-color="#d0a051"/><stop offset="1" stop-color="#f6d992"/></linearGradient><linearGradient id="scissor-steel"><stop stop-color="#9a9a9e"/><stop offset=".5" stop-color="#fff9ed"/><stop offset="1" stop-color="#c4b5a2"/></linearGradient></defs>
@@ -44,8 +48,10 @@
       <circle cx="60" cy="80" r="6" fill="url(#scissor-gold)"/><path d="m57 80 6 0" stroke="#84602e" stroke-width="1.5"/>
     </svg>
   </div>
-  <div class="curtain curtain-left" aria-hidden="true"></div>
-  <div class="curtain curtain-right" aria-hidden="true"></div>
+  <div class="curtain-stage" aria-hidden="true">
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+  </div>
   <div class="logo-intro" aria-hidden="true"><img src="assets/logo.svg" alt="" width="684" height="146"></div>
   <div class="ambient" aria-hidden="true"></div>
   <div class="particles" aria-hidden="true"></div>
@@ -91,6 +97,9 @@
 </body>
 
 </html>
+
+
+
 
 
 

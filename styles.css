@@ -278,3 +278,34 @@ h1 {letter-spacing:-1px}
 @keyframes detail-arrival {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .motion-paused .ribbon-intro,.motion-paused .logo-intro {display:none}
 .motion-paused .brand *,.motion-paused .invitation-copy > * {animation:none}
+/* Curtain motion adapted from the supplied reference: outward pull, rotation and stretch. */
+.curtain-stage {position:fixed;inset:0;z-index:3;overflow:hidden;pointer-events:none;contain:paint}
+@media(prefers-reduced-motion:no-preference) {
+  .ribbon-fabric {filter:drop-shadow(0 3px 3px #14081340)}
+  .curtain {
+    position:absolute;width:50%;height:100%;bottom:auto;
+    background:
+      linear-gradient(180deg,#14071055,transparent 16%,#180b1620 88%,#14071066),
+      repeating-linear-gradient(90deg,#24121b 0%,#3b1c29 3%,#603044 7%,#512639 10%,#351824 14%,#210e19 18%,#331723 20%);
+    box-shadow:none;
+    filter:drop-shadow(4px 0 9px #10071170);
+    animation:curtain-light 2s 4.4s ease-in-out both;
+    contain:layout paint;
+  }
+  .curtain:after {content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff05 0 1px,transparent 1px 3px);pointer-events:none}
+  .curtain-left {transform-origin:top right;animation:curtain-light 2s 4.4s ease-in-out both, reference-curtain-left 4s 4.4s ease-in-out both;clip-path:polygon(0 0,100% 0,99% 15%,100% 32%,98.5% 53%,100% 75%,98% 100%,0 100%)}
+  .curtain-right {transform-origin:top left;animation:curtain-light 2s 4.4s ease-in-out both, reference-curtain-right 4s 4.4s ease-in-out both;clip-path:polygon(0 0,100% 0,100% 100%,2% 100%,0 75%,1.5% 53%,0 32%,1% 15%);filter:drop-shadow(-4px 0 9px #10071170)}
+}
+
+@keyframes curtain-light {
+  from {filter:brightness(1.8)}
+  to {filter:brightness(1)}
+}
+@keyframes reference-curtain-left {
+  from {transform:translate(0) rotate(0) scale(1,1)}
+  to {transform:translate(-100%) rotate(20deg) scale(0,2)}
+}
+@keyframes reference-curtain-right {
+  from {transform:translate(0) rotate(0) scale(1,1)}
+  to {transform:translate(100%) rotate(-20deg) scale(0,2)}
+}
