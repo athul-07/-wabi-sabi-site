@@ -1,4 +1,4 @@
-﻿:root{color-scheme:dark;--wine:#351b24;--cream:#f4e8d7;--gold:#c9ac77;--muted:#d1bba9}
+:root{color-scheme:dark;--wine:#351b24;--cream:#f4e8d7;--gold:#c9ac77;--muted:#d1bba9}
 *{box-sizing:border-box}html,body{scrollbar-width:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}body{margin:0;background:var(--wine);color:var(--cream);font-family:'DM Sans',sans-serif;min-width:280px;overflow-x:hidden}body:before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 22%,#6a39434d,transparent 65%),repeating-linear-gradient(110deg,#ffffff02 0 1px,transparent 1px 4px);pointer-events:none}button{font:inherit}.ambient{position:fixed;inset:-30%;background:radial-gradient(ellipse at 25% 60%,#a16f4320,transparent 40%),radial-gradient(ellipse at 75% 40%,#bd6d7d16,transparent 45%);animation:ambient 14s ease-in-out infinite alternate;pointer-events:none}.invitation{position:relative;max-width:1080px;margin:24px auto;padding:48px 44px 30px;text-align:center;min-height:calc(100svh - 48px);display:flex;flex-direction:column;align-items:center;justify-content:center}.frame{position:absolute;inset:0;border:1px solid #b996644d;pointer-events:none}.frame:before{content:'';position:absolute;inset:8px;border:1px solid #b9966426}.frame span{position:absolute;color:var(--gold);font:30px Georgia;background:var(--wine);line-height:1;padding:4px}.frame span:nth-child(1){top:-17px;left:-17px}.frame span:nth-child(2){top:-17px;right:-17px}.frame span:nth-child(3){bottom:-17px;left:-17px}.frame span:nth-child(4){bottom:-17px;right:-17px}.brand img{width:270px;max-width:70vw;height:auto;filter:invert(92%) sepia(15%) saturate(430%) hue-rotate(339deg) brightness(99%)}.brand p{font-size:11px;letter-spacing:4px;margin:12px 0 32px;color:var(--gold)}.brand p span{padding:0 6px}.eyebrow,.launch-label,.event-time,.countdown-section h2,.footer-note{font-size:10px;letter-spacing:2.7px;font-weight:400;color:var(--muted)}h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(64px,8.2vw,108px);font-weight:400;line-height:.95;margin:22px 0 20px;letter-spacing:-3px}h1 em{display:block;font-weight:400;color:#e0bf8e}.ornament{display:flex;align-items:center;justify-content:center;gap:18px;color:var(--gold);font-size:23px;margin:20px 0}.ornament span{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.ornament span:last-child{transform:rotate(180deg)}.launch-intro{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:0 0 25px;color:var(--muted)}.launch-label{font-size:9px;margin-bottom:10px}.event-date{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(33px,4.5vw,49px);font-weight:600;white-space:nowrap}.event-date span{font-size:.48em;vertical-align:super;margin-right:5px;font-style:italic}.event-time{margin:12px 0 22px;font-size:14px;font-weight:600;letter-spacing:2px;color:var(--cream)}.event-time span{margin:0 12px;color:var(--gold)}.event-time small{font-size:10px;color:var(--muted)}.venue{display:flex;justify-content:center;align-items:center;gap:8px;font-size:18px;font-weight:600;letter-spacing:.4px;margin:0}.venue svg{flex-shrink:0;color:var(--gold)}.countdown-section{margin-top:30px;padding-top:24px;border-top:1px solid #b9966433;width:min(100%,430px)}.countdown-section h2{font-size:8px;letter-spacing:2.2px;margin:0 0 14px}.countdown{display:flex;align-items:flex-start;justify-content:center;gap:15px}.countdown[hidden]{display:none}.countdown div{width:64px}.countdown [data-countdown]{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:54px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}.countdown small{display:block;font-size:7px;letter-spacing:2px;color:var(--gold);margin-top:7px}.countdown b{font:24px 'Cormorant Garamond',Georgia,serif;color:#b9966480;margin-top:8px;font-weight:400}.tick{animation:tick .4s ease-out}footer{margin-top:27px}footer p{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;color:var(--muted);margin:0 0 17px}footer em{font-weight:400}.footer-star{display:block;color:var(--gold);font-size:14px;margin-bottom:10px;animation:glimmer 5s ease-in-out infinite}.footer-note{font-size:7px;letter-spacing:2.3px}.particles{position:fixed;inset:0;overflow:hidden;pointer-events:none}.particle{position:absolute;bottom:-20px;left:var(--x);width:var(--size);height:var(--size);background:var(--gold);border-radius:50%;opacity:0;box-shadow:0 0 8px #d9b37a55;animation:float var(--duration) var(--delay) linear infinite}.curtain{position:fixed;z-index:3;top:0;bottom:0;width:50%;pointer-events:none;background:repeating-linear-gradient(90deg,#241219,#4d2733 12%,#2e1620 24%);box-shadow:0 0 50px #160a12;animation:curtain 4s cubic-bezier(.65,0,.2,1) both}.curtain-left{left:0;--direction:-1}.curtain-right{right:0;--direction:1}.entrance{animation:entrance 1.3s .6s both}.invitation-copy{animation-delay:.8s}.countdown-section{animation-delay:1s}footer.entrance{animation-delay:1.2s}.motion-toggle{position:fixed;right:16px;bottom:12px;z-index:4;border:1px solid #b996644d;background:#351b24e8;color:var(--muted);padding:8px 10px;border-radius:3px;font-size:9px;cursor:pointer}.motion-toggle:hover{border-color:var(--gold)}.motion-toggle:focus-visible{outline:2px solid var(--cream);outline-offset:4px}.motion-paused *,.motion-paused *:before{animation-play-state:paused!important}.motion-paused .curtain{display:none}.motion-paused .entrance{animation:none}
 @keyframes curtain{0%,10%{transform:translateX(0)}100%{transform:translateX(calc(var(--direction)*105%));visibility:hidden}}@keyframes entrance{from{opacity:0;transform:translateY(16px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}@keyframes float{0%{transform:translate(0,0);opacity:0}15%{opacity:.5}80%{opacity:.3}100%{transform:translate(65px,-110vh);opacity:0}}@keyframes ambient{to{transform:translate(5%,3%) rotate(10deg)}}@keyframes glimmer{50%{opacity:.35;transform:rotate(90deg)}}@keyframes tick{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1200px){.invitation{max-width:1000px}.frame:after{content:'';position:absolute;inset:22px;border:1px solid #b9966414;border-radius:48% 48% 0 0;z-index:-1}}@media(max-width:600px){.invitation{margin:18px;padding:39px 18px 43px;min-height:calc(100svh - 36px)}.brand img{width:220px}.brand p{font-size:9px;letter-spacing:3px;margin-bottom:29px}.eyebrow{font-size:7px;letter-spacing:1.8px}h1{margin-top:23px;letter-spacing:-2px}.launch-intro{font-size:19px;max-width:230px;margin:0 auto 24px}.event-time{font-size:12px}.venue{font-size:15px;letter-spacing:0}.countdown-section{margin-top:26px}.countdown{gap:7px}.countdown div{width:49px}.countdown [data-countdown]{font-size:45px}.countdown small{font-size:6px;letter-spacing:1.2px}footer p{font-size:18px;max-width:250px}.motion-toggle{font-size:8px;bottom:5px;right:6px;padding:6px}.footer-note{font-size:6px;letter-spacing:1.8px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}.curtain,.particles{display:none}}
@@ -214,24 +214,24 @@ h1 {letter-spacing:-1px}
 /* One continuous opening sequence: cut, release, curtains, logo, details. */
 .ribbon-intro,.logo-intro {display:none}
 @media(prefers-reduced-motion:no-preference) {
-  .ribbon-intro {display:block;position:fixed;inset:0;z-index:5;overflow:hidden;pointer-events:none;animation:ceremony-end .5s 4.1s both}
+  .ribbon-intro {display:block;position:fixed;inset:0;z-index:5;overflow:hidden;pointer-events:none;animation:ceremony-end .4s 2.5s both}
   .ribbon-fabric {position:absolute;left:0;top:calc(50% - 151px);width:100%;height:360px;overflow:visible;filter:drop-shadow(0 9px 9px #10061170)}
   .fabric-right {transform:translateX(1200px) scaleX(-1)}
-  .fabric-left {animation:fabric-release-left 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
-  .fabric-right {animation:fabric-release-right 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
-  .fabric-shape {animation:fabric-drape 2.8s 1.65s cubic-bezier(.32,0,.25,1) both}
+  .fabric-left {animation:fabric-release-left 2.2s .65s cubic-bezier(.32,0,.25,1) both}
+  .fabric-right {animation:fabric-release-right 2.2s .65s cubic-bezier(.32,0,.25,1) both}
+  .fabric-shape {animation:fabric-drape 2.2s .65s cubic-bezier(.32,0,.25,1) both}
   .ceremony-scissors {position:absolute;left:50%;top:calc(50% - 126px);width:120px;height:160px;filter:drop-shadow(0 4px 3px #140a1660);animation:scissors-placement 2.6s both;transform:translateX(-50%)}
   .blade-one,.blade-two {transform-origin:60px 80px}
-  .blade-one {animation:blade-close-left .55s 1.1s cubic-bezier(.4,0,.2,1) both}
-  .blade-two {animation:blade-close-right .55s 1.1s cubic-bezier(.4,0,.2,1) both}
+  .blade-one {animation:blade-close-left .55s .1s cubic-bezier(.4,0,.2,1) both}
+  .blade-two {animation:blade-close-right .55s .1s cubic-bezier(.4,0,.2,1) both}
   .curtain {animation-delay:4.4s}
-  .logo-intro {display:flex;position:fixed;inset:0;z-index:2;align-items:center;justify-content:center;background:var(--wine);pointer-events:none;overflow:hidden;animation:ceremony-end .8s 8.9s both}
-  .logo-intro img {width:min(78vw,640px);height:auto;filter:invert(92%) sepia(15%) saturate(430%) hue-rotate(339deg) brightness(99%);animation:logo-reveal 3s 5.2s cubic-bezier(.22,.61,.36,1) both}
+  .logo-intro {display:flex;position:fixed;inset:0;z-index:2;align-items:center;justify-content:center;background:var(--wine);pointer-events:none;overflow:hidden;animation:ceremony-end .6s 5.2s both}
+  .logo-intro img {width:min(78vw,640px);height:auto;filter:invert(92%) sepia(15%) saturate(430%) hue-rotate(339deg) brightness(99%);animation:logo-reveal 1.8s 2.8s cubic-bezier(.22,.61,.36,1) both}
   .brand.entrance,.invitation-copy.entrance {animation:none}
-  .brand img {animation:detail-arrival 1s 9s both}
-  .brand-title {animation:detail-arrival .9s 9.3s both}
-  .brand-subtitle {animation:detail-arrival .9s 9.45s both}
-  .invitation-copy > * {animation:detail-arrival .8s calc(9.7s + var(--detail-delay,0s)) both}
+  .brand img {animation:detail-arrival .7s 5.3s both}
+  .brand-title {animation:detail-arrival .7s 5.5s both}
+  .brand-subtitle {animation:detail-arrival .7s 5.65s both}
+  .invitation-copy > * {animation:detail-arrival .8s calc(5.8s + var(--detail-delay,0s)) both}
   .invitation-copy h1 {--detail-delay:.15s}
   .invitation-copy .ornament {--detail-delay:.3s}
   .invitation-copy .launch-intro {--detail-delay:.45s}
@@ -239,8 +239,8 @@ h1 {letter-spacing:-1px}
   .invitation-copy .event-date {--detail-delay:.7s}
   .invitation-copy .event-time {--detail-delay:.8s}
   .invitation-copy .venue {--detail-delay:.9s}
-  .countdown-section.entrance {animation:detail-arrival .8s 10.75s both}
-  footer.entrance {animation:detail-arrival .8s 10.9s both}
+  .countdown-section.entrance {animation:detail-arrival .7s 6.85s both}
+  footer.entrance {animation:detail-arrival .7s 7s both}
 }
 @keyframes scissors-placement {
   0% {opacity:0;transform:translate(-50%,-35px) rotate(-8deg)}
@@ -289,12 +289,12 @@ h1 {letter-spacing:-1px}
       repeating-linear-gradient(90deg,#24121b 0%,#3b1c29 3%,#603044 7%,#512639 10%,#351824 14%,#210e19 18%,#331723 20%);
     box-shadow:none;
     filter:drop-shadow(4px 0 9px #10071170);
-    animation:curtain-light 2s 4.4s ease-in-out both;
+    animation:curtain-light 1.3s 2.4s ease-in-out both;
     contain:layout paint;
   }
   .curtain:after {content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff05 0 1px,transparent 1px 3px);pointer-events:none}
-  .curtain-left {transform-origin:top right;animation:curtain-light 2s 4.4s ease-in-out both, reference-curtain-left 4s 4.4s ease-in-out both;clip-path:polygon(0 0,100% 0,99% 15%,100% 32%,98.5% 53%,100% 75%,98% 100%,0 100%)}
-  .curtain-right {transform-origin:top left;animation:curtain-light 2s 4.4s ease-in-out both, reference-curtain-right 4s 4.4s ease-in-out both;clip-path:polygon(0 0,100% 0,100% 100%,2% 100%,0 75%,1.5% 53%,0 32%,1% 15%);filter:drop-shadow(-4px 0 9px #10071170)}
+  .curtain-left {transform-origin:top right;animation:curtain-light 1.3s 2.4s ease-in-out both, reference-curtain-left 2.6s 2.4s ease-in-out both;clip-path:polygon(0 0,100% 0,99% 15%,100% 32%,98.5% 53%,100% 75%,98% 100%,0 100%)}
+  .curtain-right {transform-origin:top left;animation:curtain-light 1.3s 2.4s ease-in-out both, reference-curtain-right 2.6s 2.4s ease-in-out both;clip-path:polygon(0 0,100% 0,100% 100%,2% 100%,0 75%,1.5% 53%,0 32%,1% 15%);filter:drop-shadow(-4px 0 9px #10071170)}
 }
 
 @keyframes curtain-light {
@@ -309,3 +309,37 @@ h1 {letter-spacing:-1px}
   from {transform:translate(0) rotate(0) scale(1,1)}
   to {transform:translate(100%) rotate(-20deg) scale(0,2)}
 }
+/* The ceremony stays closed until the visitor activates the scissors. */
+.ribbon-bow {position:absolute;left:50%;top:calc(50% - 68px);width:clamp(170px,24vw,240px);height:auto;transform:translateX(-50%);filter:drop-shadow(0 3px 2px #40041555);pointer-events:none}
+.cut-ribbon {position:absolute;left:50%;top:calc(50% - 139px);width:120px;height:160px;transform:translateX(-50%);padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;touch-action:manipulation;z-index:1;border-radius:30px}
+.cut-ribbon .ceremony-scissors {position:static;display:block;width:120px;height:160px;transform:none;opacity:1;animation:scissors-withdraw .6s .7s both;transition:filter .2s}
+.cut-ribbon:hover .ceremony-scissors {filter:drop-shadow(0 0 6px #ebcf9370)}
+.cut-ribbon:focus-visible {outline:2px solid var(--cream);outline-offset:6px}
+.cut-ribbon:disabled {cursor:default;pointer-events:none}
+.cut-hint {position:absolute;top:calc(50% + 150px);width:100%;margin:0;text-align:center;font-size:12px;letter-spacing:1.5px;color:var(--cream);animation:ceremony-end .3s .1s both}
+.bow-left {transform-origin:120px 80px;animation:bow-release-left 2.2s .65s cubic-bezier(.32,0,.25,1) both}
+.bow-right {transform-origin:120px 80px;animation:bow-release-right 2.2s .65s cubic-bezier(.32,0,.25,1) both}
+.bow-knot {animation:ceremony-end .3s .65s both}
+.intro-enabled:not(.intro-open) .ribbon-intro,
+.intro-enabled:not(.intro-open) .ribbon-intro *,
+.intro-enabled:not(.intro-open) .curtain,
+.intro-enabled:not(.intro-open) .logo-intro,
+.intro-enabled:not(.intro-open) .logo-intro *,
+.intro-enabled:not(.intro-open) .invitation * {animation-play-state:paused!important}
+.intro-enabled:not(.intro-open) .invitation {visibility:hidden}
+.intro-complete .ribbon-intro,.intro-complete .curtain-stage,.intro-complete .logo-intro {display:none!important}
+html:not(.intro-enabled) .ribbon-intro,html:not(.intro-enabled) .curtain-stage,html:not(.intro-enabled) .logo-intro {display:none!important}
+html:not(.intro-enabled) .invitation * {animation:none!important}
+@keyframes scissors-withdraw {from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-28px) rotate(8deg)}}
+@keyframes bow-release-left {0%{transform:translate(0,0) rotate(0);opacity:1}35%{transform:translate(-18px,22px) rotate(-12deg);opacity:1}100%{transform:translate(-160px,200px) rotate(-38deg);opacity:0}}
+@keyframes bow-release-right {0%{transform:translate(0,0) rotate(0);opacity:1}35%{transform:translate(18px,25px) rotate(12deg);opacity:1}100%{transform:translate(160px,210px) rotate(38deg);opacity:0}}
+@media(max-height:450px) {.cut-hint{top:calc(50% + 108px)}.ribbon-bow{width:180px;top:calc(50% - 55px)}}
+@media(prefers-reduced-motion:reduce) {
+  .intro-enabled:not(.intro-open) .ribbon-intro {display:block;position:fixed;inset:0;z-index:5;background:var(--wine)}
+  .ribbon-fabric {position:absolute;left:0;top:calc(50% - 151px);width:100%;height:360px}
+  .fabric-right {transform:translateX(1200px) scaleX(-1)}
+  .blade-one,.blade-two {transform-origin:60px 80px}
+  .blade-one {transform:rotate(-8deg)}.blade-two {transform:rotate(8deg)}
+  .intro-open .ribbon-intro,.intro-open .curtain-stage,.intro-open .logo-intro {display:none}
+}
+.ribbon-bow {top:50%;transform:translate(-50%,-40%)}

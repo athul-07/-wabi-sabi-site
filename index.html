@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -23,15 +23,16 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("intro-enabled");</script>
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <div class="ribbon-intro" aria-hidden="true">
-    <svg class="ribbon-fabric" viewBox="0 0 1200 360" preserveAspectRatio="none">
+  <div class="ribbon-intro">
+    <svg class="ribbon-fabric" aria-hidden="true" viewBox="0 0 1200 360" preserveAspectRatio="none">
       <defs>
         <linearGradient id="ceremony-satin" x1="0" y1=".15" x2="1" y2=".65">
-          <stop offset="0" stop-color="#963a50"/><stop offset=".28" stop-color="#bc586c"/><stop offset=".52" stop-color="#b14e62"/><stop offset=".76" stop-color="#c16b7a"/><stop offset="1" stop-color="#ac4a5e"/>
+          <stop offset="0" stop-color="#9f1226"/><stop offset=".28" stop-color="#c8283c"/><stop offset=".52" stop-color="#b91d31"/><stop offset=".76" stop-color="#d63b4c"/><stop offset="1" stop-color="#b7192c"/>
         </linearGradient>
         <pattern id="ribbon-weave" width="4" height="4" patternUnits="userSpaceOnUse">
           <path d="M0 1H4 M1 0V4" stroke="#f4c6c8" stroke-opacity=".14" stroke-width=".5"/>
@@ -41,12 +42,31 @@
       <g class="fabric-left"><path id="cloth-left" class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/><path class="fabric-shape" fill="url(#ribbon-weave)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
       <g class="fabric-right"><path id="cloth-right" class="fabric-shape" fill="url(#ceremony-satin)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/><path class="fabric-shape" fill="url(#ribbon-weave)" d="M-30 120 C180 120 410 125 600 125 L600 177 C410 177 180 172 -30 172 Z"/></g>
     </svg>
-    <svg class="ceremony-scissors" viewBox="0 0 120 160" width="120" height="160">
+    <svg class="ribbon-bow" viewBox="0 0 240 200" aria-hidden="true">
+      <defs><linearGradient id="bow-red" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#8c1023"/><stop offset=".42" stop-color="#dc394b"/><stop offset=".65" stop-color="#bc1c32"/><stop offset="1" stop-color="#920b20"/></linearGradient></defs>
+      <g class="bow-left" fill="url(#bow-red)">
+        <path d="M116 77C91 95 83 140 56 182L81 175 93 194C109 158 123 107 124 81Z"/>
+        <path d="M117 75C87 38 28 12 21 42C11 83 57 106 117 85Z"/>
+        <path d="M110 77C76 50 38 40 31 48C29 66 69 81 110 77Z" fill="#820b1f" opacity=".7"/>
+        <path d="M30 41C48 28 88 55 113 73" fill="none" stroke="#ed6571" stroke-opacity=".55" stroke-width="2"/>
+      </g>
+      <g class="bow-right" fill="url(#bow-red)">
+        <path d="M124 77C149 95 157 140 184 182L159 175 147 194C131 158 117 107 116 81Z"/>
+        <path d="M123 75C153 38 212 12 219 42C229 83 183 106 123 85Z"/>
+        <path d="M130 77C164 50 202 40 209 48C211 66 171 81 130 77Z" fill="#820b1f" opacity=".7"/>
+        <path d="M210 41C192 28 152 55 127 73" fill="none" stroke="#ed6571" stroke-opacity=".55" stroke-width="2"/>
+      </g>
+      <path class="bow-knot" d="M108 66Q120 61 132 66L134 92Q120 99 106 92Z" fill="url(#bow-red)"/>
+    </svg>
+    <button class="cut-ribbon" type="button" aria-label="Cut the ribbon and open the invitation">
+    <svg aria-hidden="true" class="ceremony-scissors" viewBox="0 0 120 160" width="120" height="160">
       <defs><linearGradient id="scissor-gold"><stop stop-color="#936127"/><stop offset=".45" stop-color="#fff0bb"/><stop offset=".7" stop-color="#d0a051"/><stop offset="1" stop-color="#f6d992"/></linearGradient><linearGradient id="scissor-steel"><stop stop-color="#9a9a9e"/><stop offset=".5" stop-color="#fff9ed"/><stop offset="1" stop-color="#c4b5a2"/></linearGradient></defs>
       <g class="blade-one"><path d="M43 47 64 78 91 142 Q83 141 78 132 L57 83 37 51Z" fill="url(#scissor-steel)"/><ellipse cx="36" cy="30" rx="17" ry="23" fill="none" stroke="url(#scissor-gold)" stroke-width="7"/></g>
       <g class="blade-two"><path d="M77 47 56 78 29 142 Q37 141 42 132 L63 83 83 51Z" fill="url(#scissor-steel)"/><ellipse cx="84" cy="30" rx="17" ry="23" fill="none" stroke="url(#scissor-gold)" stroke-width="7"/></g>
       <circle cx="60" cy="80" r="6" fill="url(#scissor-gold)"/><path d="m57 80 6 0" stroke="#84602e" stroke-width="1.5"/>
     </svg>
+    </button>
+    <p class="cut-hint">Tap the scissors to open</p>
   </div>
   <div class="curtain-stage" aria-hidden="true">
     <div class="curtain curtain-left"></div>

@@ -1,4 +1,31 @@
-﻿(() => {
+(() => {
+  const root = document.documentElement;
+  const invitation = document.querySelector('.invitation');
+  const scissors = document.querySelector('.cut-ribbon');
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  let opening = false;
+  let finishTimer;
+  invitation.inert = true;
+  function finishOpening() {
+    clearTimeout(finishTimer);
+    root.classList.add('intro-complete');
+    invitation.inert = false;
+    const title = document.querySelector('h1');
+    title.setAttribute('tabindex', '-1');
+    title.focus({ preventScroll: true });
+  }
+  scissors.addEventListener('click', () => {
+    if (opening) return;
+    opening = true;
+    scissors.disabled = true;
+    root.classList.add('intro-open');
+    if (motionPreference.matches) finishOpening();
+    else finishTimer = setTimeout(finishOpening, 7900);
+  });
+  motionPreference.addEventListener('change', event => {
+    if (event.matches && opening) finishOpening();
+  });
+
   const launch = new Date('2026-10-28T17:00:00+05:30').getTime();
   const countdown = document.querySelector('#launch-countdown');
   const digits = [...document.querySelectorAll('[data-countdown]')];
