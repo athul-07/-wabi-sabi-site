@@ -343,3 +343,10 @@ html:not(.intro-enabled) .invitation * {animation:none!important}
   .intro-open .ribbon-intro,.intro-open .curtain-stage,.intro-open .logo-intro {display:none}
 }
 .ribbon-bow {top:50%;transform:translate(-50%,-40%)}
+
+/* Keep the invitation heading framed at every viewport size. */
+.invitation-copy h1 {
+  width:100%;
+  border:2px solid #287fbd;
+  padding:2px 10px;
+}
